@@ -13,23 +13,7 @@ app.use(express.json())
 
 mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PWD}@cluster0.ldxip9t.mongodb.net/?retryWrites=true&w=majority`)
 
-const axios = require('axios');
 
-const options = {
-  method: 'GET',
-  url: 'https://cors-proxy1.p.rapidapi.com/',
-  headers: {
-    'X-RapidAPI-Key': 'b8da94920emshe2b66f0ce5bd43fp1b36b0jsnd10e55f8f348',
-    'X-RapidAPI-Host': 'cors-proxy1.p.rapidapi.com'
-  }
-};
-
-try {
-	const response = await axios.request(options);
-	console.log(response.data);
-} catch (error) {
-	console.error(error);
-}
 
 let waiterSchema = new Schema({
     id: String,
@@ -102,6 +86,6 @@ app.get("/getAllUsers", async (req, res, next) => {
     res.json(users)
 })
 
-app.listen(process.env.PORT || 3005, ()=>{
-    console.log("Listening on 3005")
+app.listen(process.env.PORT, ()=>{
+    console.log("Listening on 3005 or port")
 })
