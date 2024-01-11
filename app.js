@@ -84,6 +84,6 @@ app.get("/getAllUsers", async (req, res, next) => {
     res.json(users)
 })
 
-app.listen("3005", ()=>{
+app.listen(process.env.PORT || 3005, ()=>{
     console.log("Listening on 3005")
 })
